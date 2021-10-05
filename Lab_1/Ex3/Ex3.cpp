@@ -7,9 +7,9 @@ int main()
 {
     int a;
 
-    a = 2;
-    int b = a * a;
-    int c = b * b;
-    int d = c * c;
+    a = 2;// a-your number
+    int b = a * a; //a^2
+    int c = b * b; //a^4
+    int d = c * c; //a^8. result
 
 }
