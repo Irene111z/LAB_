@@ -21,7 +21,7 @@ int main(void) {
 	t1 = (1 / a) * ((-1 / G2) + (b / G1));//-0,32
 
 	double ax = a * x;//temporary var
-	double k = ((pow(x, 2) / a) - (2 / pow(a, 3)));
+	double k = ((pow(x, 2) / a) - (2 / pow(a, 3)));//temporary var
 	
 	t2 = ((2 * x) / pow(a, 2)) * sin(ax) - k * cos(ax);//2,89
 
