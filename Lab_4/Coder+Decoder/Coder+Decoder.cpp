@@ -2,7 +2,8 @@
 #include "windows.h"
 
 
-int main() {
+int main() 
+{
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
@@ -26,7 +27,7 @@ int main() {
 	shift_command_format |= 1 << 12;
 	shift_command_format |= 1 << 14;
 	shift_command_format |= 1 << 15;
-	
+
 	printf("\n Формат команды сдвига = %x \n\n ", shift_command_format);
 
 	//DECODER   DECODER   DECODER   DECODER   DECODER   DECODER   DECODER   
