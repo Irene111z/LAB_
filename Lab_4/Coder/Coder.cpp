@@ -27,7 +27,7 @@ int main() {
 	shift_command_format |= 1 << 14;
 	shift_command_format |= 1 << 15;
 	
-	printf("\n Формат команды сдвига = %03x \n\n ", shift_command_format);
+	printf("\n Формат команды сдвига = %x \n\n ", shift_command_format);
 
 	//DECODER   DECODER   DECODER   DECODER   DECODER   DECODER   DECODER   
 	printf("\t\tРАСПАКОВКА КОДА\t\t\n\n");
