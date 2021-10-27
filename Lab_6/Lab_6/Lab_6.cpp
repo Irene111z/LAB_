@@ -14,7 +14,6 @@ int main(void) {
 
 	for (n = 0; ; n++, k1 = -k1) {
 		n1 = n;
-		//long k2 = 1 - (pow(n1 + 1, 2) / pow(n1 + 2, 2)); //второй множитель
 		term = k1 * (1 - (pow(n1 + 1, 2) / pow(n1 + 2, 2)));
 		if (fabs(term) >= eps)
 			sum += term;
