@@ -5,8 +5,8 @@ int main(void)
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    unsigned int  g_answer,       c_answer,       a, b,        ex,       mark;   unsigned int n = 10;
-        //      ответ игрока, правильный ответ, множители, номер теста, оценка, количество заданий
+    unsigned int  g_answer,       a, b,        ex,       mark;   unsigned int n = 10;
+        //      ответ игрока,  множители, номер теста, оценка, количество заданий
     int z;
     mark = 0;
 
