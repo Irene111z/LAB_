@@ -8,7 +8,7 @@ int main(void)
 {
 
     setlocale(LC_ALL, "Russian");
-    int array[N], i, sequence, max_sequence, sum, max_sum, length, max_length;
+    int array[N],   i,          sequence,           max_sequence,           sum,         max_sum,           length,                 max_length;
     //массив,     номер эл.,   текущая послед.,  максимальная послед.,  текущая сума, максимальная сума,  текущая длинна послед.,  максимальная длинна послед.
     srand(time(NULL));
 
