@@ -9,12 +9,12 @@ int main() {
     short n; 
     double x, y; 
     short h; //позиция точки на экране 
-    float temp = 0; 
     for (n = 0; n < 5; n++) { 
         printf("|   x   |      y     |\n"); 
         printf("|-------|------------|\n"); 
         //цикл для одного периода 
-        for (x = 0; x < 4; x += 0.25) { 
+        for (x = 0; x < 4; x += 0.25)
+        { 
             if (x < 1) 
                 y = sqrt(1 - (x - 1) * (x - 1)); 
             else 
@@ -28,7 +28,7 @@ int main() {
                     h++; 
                 if (y >= 0.8) 
                     h++; 
-            } 
+            }
             for ( ; h > 0; h--) printf(" "); 
             printf("*\n"); 
         } 
