@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿//Лабораторная работа 8 из методички
+#include <iostream>
 #include "windows.h"
 #include <time.h>
 #include<iomanip>

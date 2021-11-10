@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{466aa8a1-af69-4f5e-a24b-e67c3d49852a}</ProjectGuid>
-    <RootNamespace>Practice4</RootNamespace>
+    <ProjectGuid>{bca173f9-5c6b-4ba3-bbbe-13df881c7125}</ProjectGuid>
+    <RootNamespace>My8V</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Practice_4.cpp" />
+    <ClCompile Include="8V.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
