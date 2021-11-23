@@ -29,6 +29,8 @@ int main()
 	int m;
 	cin >> m;
 
+	cout << endl;
+
 	fill(Arr, n, m);
 
 	print(Arr, n, m);
@@ -72,16 +74,32 @@ void print(int arr[100][100], int N, int M)
 }
 void search(int arr[100][100], int N, int M, int row)
 {
-
-
-	cout << "Все положительные числа " << row << " ряда: ";
+	/*
+	cout<<"Введите номер строки, в которой хотите узнать количество положительных элементов d= ";
+	int d;
+	cin>>d;
+	k=0;
+	cout << "Количество положительных элементов " << d << " строки: ";
+	for (int i = d; i < d + 1; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			if (arr[i][j] > 0)
+				k++;
+		}
+	}
+	cout << k;
+	*/
+	int k = 0;
+	cout << "Количество положительных элементов " << row << " строки: ";
 	for (int i = row; i < row + 1; i++)
 	{
 		for (int j = 0; j < M; j++)
 		{
 			if (arr[i][j] > 0)
-				cout << arr[i][j] << setw(4);
+				k++;
+				
 		}
 	}
-
+	cout << k;
 }
