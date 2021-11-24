@@ -14,7 +14,7 @@ int main()
 	setlocale(LC_ALL, "Rus");
 
 	int Arr[N * M];
-	
+	srand(time(NULL));
 	for (int i = 0; i < N*M; i++)
 	{
 		Arr[i] = rand() % 10;
