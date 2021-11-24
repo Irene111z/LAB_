@@ -34,6 +34,14 @@ int main()
 	fill(Arr, n, m);
 
 	print(Arr, n, m);
+
+	/*while(Row<n)
+	 {
+	cout<<"Введите номер строки, в которой хотите узнать количество положительных элементов Row= ";
+	int Row;
+	cin >> Row;
+	}*/
+
 	int Row = 0;
 	for (int i = 0; i < n; i++)
 	{
@@ -41,7 +49,6 @@ int main()
 		cout << endl;
 		Row++;
 	}
-
 
 }
 void fill(int arr[100][100], int N, int M)
@@ -59,7 +66,6 @@ void fill(int arr[100][100], int N, int M)
 void print(int arr[100][100], int N, int M)
 {
 
-
 	cout << "Массив:" << endl;
 	cout << setw(4);
 
@@ -71,25 +77,10 @@ void print(int arr[100][100], int N, int M)
 		}
 		cout << endl;
 	}
+
 }
 void search(int arr[100][100], int N, int M, int row)
 {
-	/*
-	cout<<"Введите номер строки, в которой хотите узнать количество положительных элементов d= ";
-	int d;
-	cin>>d;
-	k=0;
-	cout << "Количество положительных элементов " << d << " строки: ";
-	for (int i = d; i < d + 1; i++)
-	{
-		for (int j = 0; j < M; j++)
-		{
-			if (arr[i][j] > 0)
-				k++;
-		}
-	}
-	cout << k;
-	*/
 	int k = 0;
 	cout << "Количество положительных элементов " << row << " строки: ";
 	for (int i = row; i < row + 1; i++)

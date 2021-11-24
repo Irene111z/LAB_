@@ -18,8 +18,6 @@ char k(double a, double b)
 
 	return comparison_sign;
 
-
-
 }
 
 int main()
