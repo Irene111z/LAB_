@@ -24,6 +24,7 @@ int main()
 	for (int i = 0; i < M*N; i++)
 		cout << Arr[i] << setw(4);
 	cout << endl;
+
 	k(Arr);
 
 	cout << endl;
