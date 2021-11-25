@@ -59,8 +59,7 @@ void fill(int arr[100][100], int N, int M)
 
 void print(int arr[100][100], int N, int M)
 {
-
-	cout << "Массив:" << endl;
+	cout << "Массив: " << endl;
 	cout << setw(4);
 
 	for (int i = 0; i < N; i++)
