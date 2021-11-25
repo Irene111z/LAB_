@@ -13,7 +13,7 @@ using namespace std;
 
 void fill(int arr[100][100], int N, int M);
 void print(int arr[100][100], int N, int M);
-void search(int arr[100][100], int N, int M, int row);
+int search(int arr[100][100], int N, int M, int row);
 
 
 int main()
@@ -35,17 +35,11 @@ int main()
 
 	print(Arr, n, m);
 
-	/*while(Row<n)
-	 {
-	cout<<"Введите номер строки, в которой хотите узнать количество положительных элементов Row= ";
-	int Row;
-	cin >> Row;
-	}*/
-
 	int Row = 0;
 	for (int i = 0; i < n; i++)
 	{
-		search(Arr, n, m, Row);
+		cout << "Количество положительных элементов " << Row << " строки: ";
+		cout<<search(Arr, n, m, Row);
 		cout << endl;
 		Row++;
 	}
@@ -79,10 +73,9 @@ void print(int arr[100][100], int N, int M)
 	}
 
 }
-void search(int arr[100][100], int N, int M, int row)
+int search(int arr[100][100], int N, int M, int row)
 {
 	int k = 0;
-	cout << "Количество положительных элементов " << row << " строки: ";
 	for (int i = row; i < row + 1; i++)
 	{
 		for (int j = 0; j < M; j++)
@@ -92,5 +85,5 @@ void search(int arr[100][100], int N, int M, int row)
 				
 		}
 	}
-	cout << k;
+	return k;
 }

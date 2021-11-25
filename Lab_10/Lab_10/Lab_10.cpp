@@ -25,6 +25,7 @@ int main()
 		cout << Arr[i] << setw(4);
 	cout << endl;
 	k(Arr);
+
 	cout << endl;
 	cout << "Результирующий одномерный массив : ";
 	cout << endl;
