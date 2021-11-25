@@ -75,6 +75,7 @@ void print(int arr[100][100], int N, int M)
 int search(int arr[100][100], int N, int M, int row)
 {
 	int k = 0;
+
 	for (int i = row; i < row + 1; i++)
 	{
 		for (int j = 0; j < M; j++)
