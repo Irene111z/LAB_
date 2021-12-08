@@ -11,6 +11,8 @@ void a(int array[], int n);//упорядоченный массив
 void b(int array[], int n);//упорядоченный в обратном порядке
 void c(int array[], int n);//неупорядоченный массив
 
+void ddd(int arr3[], int arr, int n);
+
 void dur_(double duration[], int n, double aver_dur);//сортировка и расчёт среднего значения
 
 int main()
@@ -18,7 +20,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	const int N = 15;//количество елементов в массиве
+	const int N = 15;//количество элементов в массиве
 	const int M = 500;//количество циклов
 	cout << "N = " << N << endl << endl;
 
@@ -103,6 +105,8 @@ int main()
 	aver_dur = 0;
 	for (int i = 0; i < M; i++)
 	{
+		b(Array, N);
+
 		auto start = std::chrono::high_resolution_clock::now();
 
 		insertion_sort(Array, N);
@@ -133,6 +137,8 @@ int main()
 	aver_dur = 0;
 	for (int i = 0; i < M; i++)
 	{
+		b(Array2, N);
+
 		auto start = std::chrono::high_resolution_clock::now();
 
 		selection_sort(Array2, N);
@@ -153,11 +159,11 @@ int main()
 	cout << endl;
 
 	//НЕУПОРЯДОЧЕННЫЙ МАССИВ	//НЕУПОРЯДОЧЕННЫЙ МАССИВ	//НЕУПОРЯДОЧЕННЫЙ МАССИВ	//НЕУПОРЯДОЧЕННЫЙ МАССИВ
-	//начало сортировки вставками
+	//начало сортировки вставками 
 	c(Array, N);
 	for (i = 0; i < N; i++)//копия рандомного массива
 		Array2[i] = Array[i];
-
+	
 	cout << "Начальный массив (неупорядоченный):" << endl;
 	for (i = 0; i < N; i++)
 		cout << Array[i] << setw(4);
@@ -166,12 +172,16 @@ int main()
 	aver_dur = 0;
 	for (int i = 0; i < M; i++)
 	{
+		
+		c(Array, N);
+
 		auto start = std::chrono::high_resolution_clock::now();
 
 		insertion_sort(Array, N);
 
 		auto end = std::chrono::high_resolution_clock::now();
 		std::chrono::duration<double> duration = end - start;
+
 
 		dur_arr[i] = duration.count();//заполнение массива значениями времени
 
@@ -192,9 +202,13 @@ int main()
 		cout << Array2[i] << setw(4);
 	cout << endl;
 
+	
+
 	aver_dur = 0;
 	for (int i = 0; i < M; i++)
 	{
+		c(Array2, N);
+
 		auto start = std::chrono::high_resolution_clock::now();
 
 		selection_sort(Array2, N);
@@ -235,7 +249,6 @@ void c(int array[], int n)//неупорядоченный массив
 	int i;
 	for (i = 0; i < n; i++)
 		array[i] = i + 1;
-	srand(time(0));
 	for (int i = 0; i < n; ++i)
 	swap(array[i], array[rand() % n]);
 }
@@ -246,8 +259,8 @@ void insertion_sort(int array[], int n)//сортировка вставками
 
 	for (i = 1; i < n; i++)
 	{
-		temp = array[i];
-
+		temp = array[i];// запоминаем элемент
+			//начнем перемещение элементов слева от него пока запомненный не окажется меньше ,чем перемещаемый
 		for (i1 = i - 1; i1 >= 0 && array[i1] > temp; i1--)
 			array[i1 + 1] = array[i1];
 
@@ -268,6 +281,7 @@ void selection_sort(int array[], int n)//сортировка выбором
 		}
 
 		swap(array[startIndex], array[min]);
+
 	}
 
 }
