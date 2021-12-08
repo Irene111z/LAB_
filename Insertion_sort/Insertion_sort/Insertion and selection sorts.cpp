@@ -11,8 +11,6 @@ void a(int array[], int n);//упорядоченный массив
 void b(int array[], int n);//упорядоченный в обратном порядке
 void c(int array[], int n);//неупорядоченный массив
 
-void ddd(int arr3[], int arr, int n);
-
 void dur_(double duration[], int n, double aver_dur);//сортировка и расчёт среднего значения
 
 int main()
