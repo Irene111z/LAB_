@@ -18,7 +18,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	const int N = 15;//количество элементов в массиве
+	const int N = 45;//количество элементов в массиве
 	const int M = 500;//количество циклов
 	cout << "N = " << N << endl << endl;
 
@@ -268,6 +268,7 @@ void insertion_sort(int array[], int n)//сортировка вставками
 }
 void selection_sort(int array[], int n)//сортировка выбором
 {
+	int temp;
 	for (int startIndex = 0; startIndex < n - 1; ++startIndex)
 	{
 		int min = startIndex;
@@ -278,7 +279,10 @@ void selection_sort(int array[], int n)//сортировка выбором
 				min = currentIndex;
 		}
 
-		swap(array[startIndex], array[min]);
+		//swap(array[startIndex], array[min]);
+		temp = array[startIndex];
+		array[startIndex] = array[min];
+		array[min] = temp;
 
 	}
 
@@ -291,9 +295,7 @@ void dur_(double duration[], int n, double aver_dur)
 		{
 			if (duration[i] < duration[j])
 					swap(duration[i], duration[j]);
-	
 		}
-
 	}
 	for (int i = 0; i < n; i++)
 	{
@@ -302,5 +304,4 @@ void dur_(double duration[], int n, double aver_dur)
 		aver_dur+= duration[i];
 	}
 	printf("Среднее значение времени : = %.8lf\n", aver_dur / 200);
-	/*cout << "Среднее значение времени : " << aver_dur / 200 << endl;*/
 }
