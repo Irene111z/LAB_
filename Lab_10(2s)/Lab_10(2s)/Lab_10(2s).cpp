@@ -13,10 +13,10 @@ struct book
 	char type;
 }arr_b[3];
 
-int first();
-int second();
-void print(int N);
-void sort(int N);
+int first(book mas[]);
+int second(book mas[]);
+void print(book mas[],int N);
+void sort(book mas[],int N);
 int main()
 {
 	setlocale(LC_ALL, "Rus");
@@ -33,20 +33,20 @@ int main()
 
 		if (answer == 1)
 		{
-			int n = first();
+			int n = first(arr_b);
 
-			print(n);
-			sort(n);
+			print(arr_b,n);
+			sort(arr_b,n);
 			cout << endl;
-			print(n);
+			print(arr_b,n);
 
 		}
 		else
 		{
-			int k = second();
-			print(k);
-			sort(k);
-			print(k);
+			int k = second(arr_b);
+			print(arr_b,k);
+			sort(arr_b, k);
+			print(arr_b, k);
 		}
 		printf("\n\n\n\n\nДля продолжения нажмите любую клавишу...");
 		_getch();
@@ -60,7 +60,7 @@ int main()
 	//сортировка массива
 	
 }
-	int first()
+	int first(book mas[])
 	{
 		int n;
 
@@ -68,24 +68,25 @@ int main()
 		{
 			printf("%d. Введите: автора книги, название, год выпуска, группу -> ",
 				n + 1);
-			scanf_s("%s", arr_b[n].aut, sizeof(arr_b[n].aut));
-			if (!strcmp(arr_b[n].aut, "***")) break;
+			scanf_s("%s", mas[n].aut, sizeof(mas[n].aut));
+			if (!strcmp(mas[n].aut, "***")) break;
 
-			scanf_s("%s", arr_b[n].name, sizeof(arr_b[n].aut));
-			if (!strcmp(arr_b[n].aut, "***")) break;
+			scanf_s("%s", mas[n].name, sizeof(mas[n].aut));
+			if (!strcmp(mas[n].aut, "***")) break;
 
-			scanf_s("%d", &arr_b[n].year);
+			scanf_s("%d", &mas[n].year);
 
-			scanf_s("%s", &arr_b[n].type, sizeof(arr_b[n].aut));
+			scanf_s("%s", &mas[n].type, sizeof(mas[n].aut));
 
 		}
 		return n;
-	}int second()
+	}
+	int second(book mas[])
 	{
 		int N = 3;
 		srand(time(NULL));
 		int b = rand() % N;
-			arr_b[b] = { "Сенкевич","Потоп",1978, 'Х' };
+			mas[b] = { "Сенкевич","Потоп",1978, 'Х' };
 			int b1 = rand() % N;
 			if (b1 == b & b == 1)
 				b1 = 0;
@@ -94,13 +95,13 @@ int main()
 			else if (b1 == b & b == 0)
 				b1 = 2;
 		
-				arr_b[b1] = { "Ландау","Механика",1989, 'У' };
+				mas[b1] = { "Ландау","Механика",1989, 'У' };
 			
-			arr_b[3-b-b1] = { "Дойль","Сумчатые",1990, 'С' };
+			mas[3-b-b1] = { "Дойль","Сумчатые",1990, 'С' };
 			return N;
 	}
 
-	void print(int N)
+	void print(book mas[], int N)
 	{
 		printf("-----------------------------------------------\n");
 		printf("|Каталог библиотеки                           |\n");
@@ -111,7 +112,7 @@ int main()
 		//вывод строк фактических данных
 		for (int i = 0; i < N; i++)
 			printf("| %-11s | %-8s | %-10d | %-5c |\n",
-				arr_b[i].aut, arr_b[i].name, arr_b[i].year, arr_b[i].type);
+				mas[i].aut, mas[i].name, mas[i].year, mas[i].type);
 
 		//вывод примечний
 		printf("|---------------------------------------------|\n");
@@ -120,7 +121,7 @@ int main()
 		printf("| С - справочная литература                   |\n");
 		printf("-----------------------------------------------\n");
 	}
-	void sort(int N)
+	void sort(book mas[], int N)
 	{
 		struct book x;
 		int i, j;
@@ -131,13 +132,13 @@ int main()
 			min = i;
 			for (j = i + 1; j < N; j++)
 			{
-				if (strcmp(arr_b[min].aut, arr_b[j].aut) > 0) min = j;
+				if (strcmp(mas[min].aut, mas[j].aut) > 0) min = j;
 			}
 			if (min > i)
 			{
-				x = arr_b[i];
-				arr_b[i] = arr_b[min];
-				arr_b[min] = x;
+				x = mas[i];
+				mas[i] = mas[min];
+				mas[min] = x;
 			}
 
 		}
