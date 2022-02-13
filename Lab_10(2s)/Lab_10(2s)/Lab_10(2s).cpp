@@ -17,6 +17,7 @@ int first(book mas[],int ROWs);
 int second(book mas[], int ROWs);
 void print(book mas[],int N);
 void sort(book mas[],int N);
+
 int main()
 {
 	setlocale(LC_ALL, "Rus");
