@@ -11,7 +11,7 @@ struct book
 	char name[10];
 	int year;
 	char type;
-}arr_b[3];
+}arr_b[10];
 
 int first(book mas[],int ROWs);
 int second(book mas[], int ROWs);
