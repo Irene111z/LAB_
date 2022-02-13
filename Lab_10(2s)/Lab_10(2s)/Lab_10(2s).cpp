@@ -8,13 +8,13 @@ using namespace std;
 struct book
 {
 	char aut[9];
-	char name[9];
+	char name[10];
 	int year;
 	char type;
 }arr_b[3];
 
-int first(book mas[]);
-int second(book mas[]);
+int first(book mas[],int ROWs);
+int second(book mas[], int ROWs);
 void print(book mas[],int N);
 void sort(book mas[],int N);
 int main()
@@ -26,27 +26,82 @@ int main()
 	{
 		system("cls");
 		cout << "Заполнение списка" << endl
-			<< "Ввод с экрана - 1, случайным образом - любая другая цифра"
+			<< "Ввод с экрана - 1, случайным образом - 2"
 			<< endl << "-> ";
 		int answer;
 		cin >> answer;
 
 		if (answer == 1)
 		{
-			int n = first(arr_b);
-
-			print(arr_b,n);
-			sort(arr_b,n);
-			cout << endl;
-			print(arr_b,n);
-
+			answer == 0;
+			cout << "Сколько позиций хотите ввести?(max=10) = ";
+			int rows;
+			cin >> rows;
+			int n = first(arr_b, rows);
+			cout << "Хотите распечатать таблицу - нажмите 3";
+			cout << endl << "Хотите отсортировать таблицу - нажмите 4 -> ";
+			cin >> answer;
+			if(answer==3)
+			{
+				print(arr_b, n);
+				answer = 0;
+				cout << endl << "Хотите отсортировать таблицу - нажмите 4 -> ";
+			/*	cout << "Начать заново - нажмите любую клавишу...";*/
+				cin >> answer;
+				if (answer == 4)
+					sort(arr_b, n);
+				else
+					answer = 0;
+			}
+			if(answer==4)
+			{
+				sort(arr_b, n);
+				answer = 0;
+				cout << "Хотите распечатать таблицу - нажмите 3 -> ";
+				cin >> answer;
+				if (answer == 3)
+					print(arr_b, n);
+				else
+					answer = 0;
+			}
+			
+		
 		}
-		else
+		if(answer == 2)
 		{
-			int k = second(arr_b);
-			print(arr_b,k);
-			sort(arr_b, k);
-			print(arr_b, k);
+			answer = 0;
+			cout << "Сколько позиций хотите ввести?(max=10) = ";
+			int rows1;
+			cin >> rows1;
+			int k = second(arr_b,rows1);
+						
+			cout << "Хотите распечатать таблицу - нажмите 3";
+			cout << endl << "Хотите отсортировать таблицу - нажмите 4 -> ";
+			cin >> answer;
+			if (answer == 3)
+			{
+				print(arr_b, k);
+				answer = 0;
+				cout << endl << "Хотите отсортировать таблицу - нажмите 4 -> ";
+				/*	cout << "Начать заново - нажмите любую клавишу...";*/
+				cin >> answer;
+				if (answer == 4)
+					sort(arr_b, k);
+				else
+					answer = 0;
+			}
+			if (answer == 4)
+			{
+				sort(arr_b, k);
+				answer = 0;
+				cout << "Хотите распечатать таблицу - нажмите 3 -> ";
+				cin >> answer;
+				if (answer == 3)
+					print(arr_b, k);
+				else
+					answer = 0;
+			}
+
 		}
 		printf("\n\n\n\n\nДля продолжения нажмите любую клавишу...");
 		_getch();
@@ -58,11 +113,11 @@ int main()
 	//Дойль Сумчатые 1990 C
 	
 }
-	int first(book mas[])
+	int first(book mas[], int ROWs)//ввод с экрана
 	{
 		int n;
 
-		for (n = 0; n < 3; n++)
+		for (n = 0; n < ROWs; n++)
 		{
 			printf("%d. Введите: автора книги, название, год выпуска, группу -> ",
 				n + 1);
@@ -79,45 +134,54 @@ int main()
 		}
 		return n;
 	}
-	int second(book mas[])
+	int second(book mas[], int ROWs)//случайное заполнение
 	{
-		int N = 3;
+		int n,i;
 		srand(time(NULL));
-		int b = rand() % N;
-			mas[b] = { "Сенкевич","Потоп",1978, 'Х' };
-			int b1 = rand() % N;
-			if (b1 == b & b == 1)
-				b1 = 0;
-			else if (b1 == b & b == 2)
-				b1 = 1;
-			else if (b1 == b & b == 0)
-				b1 = 2;
+		const int C = 10;
+
+		string aut_[C] = { "Сенкевич","Дойль","Пушкин","Ландау","Гоголь","Чехов","Толстой","Саган","Брэдбери","Маркс"};
+		string name_[C]{"Потоп","Сумчатые","Недоросль","Механика","Шинель","Тоска","Детство","Космос","Убийство","Капитал"};
+		char type[3] = { 'Х','У','С' };
+
+		int random[C];
+		for( i=0; i<C; i++)
+		{
+			random[i] = i;
+		}
+		for ( i=0; i<C; i++)
+			swap(random[i], random[rand() % C]);
+
+		for (n = 0, i=0; n < ROWs; n++, i++)
+		{
+			strcpy_s(mas[n].aut, aut_[random[i]].c_str());
+			strcpy_s(mas[n].name, name_[random[i]].c_str());
+			mas[n].type = type[rand() % 3];
+			mas[n].year = rand()% 200 + 1800;
+		}
 		
-				mas[b1] = { "Ландау","Механика",1989, 'У' };
-			
-			mas[3-b-b1] = { "Дойль","Сумчатые",1990, 'С' };
-			return N;
+		return n;
 	}
 
 	void print(book mas[], int N)
 	{
-		printf("-----------------------------------------------\n");
-		printf("|Каталог библиотеки                           |\n");
-		printf("|---------------------------------------------|\n");
-		printf("|Автор книги  |Название  |Год выпуска |Группа |\n");
-		printf("|             |          |            |       |\n");
-		printf("|-------------|----------|------------|-------|\n");
+		printf("------------------------------------------------\n");
+		printf("|Каталог библиотеки                            |\n");
+		printf("|----------------------------------------------|\n");
+		printf("|Автор книги  |Название  |Год выпуска |Группа  |\n");
+		printf("|             |          |            |        |\n");
+		printf("|-------------|----------|------------|--------|\n");
 		//вывод строк фактических данных
 		for (int i = 0; i < N; i++)
-			printf("| %-11s | %-8s | %-10d | %-5c |\n",
+			printf("| %-11s | %-9s | %-10d | %-5c |\n",
 				mas[i].aut, mas[i].name, mas[i].year, mas[i].type);
 
 		//вывод примечний
-		printf("|---------------------------------------------|\n");
-		printf("| Примечание: Х - художественная литература;  |\n");
-		printf("| У - учебная литература;                     |\n");
-		printf("| С - справочная литература                   |\n");
-		printf("-----------------------------------------------\n");
+		printf("|----------------------------------------------|\n");
+		printf("| Примечание: Х - художественная литература;   |\n");
+		printf("| У - учебная литература;                      |\n");
+		printf("| С - справочная литература                    |\n");
+		printf("------------------------------------------------\n");
 	}
 	void sort(book mas[], int N)
 	{
