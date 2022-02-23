@@ -74,7 +74,7 @@ void sort(book mas[], int N)
 #endif
 }
 
-int input(book mas[], int ROWs)
+int fill(book mas[], int ROWs)
 {
 #ifdef PRINT_TYPE
 

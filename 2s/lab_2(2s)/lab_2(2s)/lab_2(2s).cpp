@@ -16,7 +16,7 @@ int main()
 		cin >> rows;
 		int n;
 
-		n=input(arr_b, rows);
+		n=fill(arr_b, rows);
 	
 		cout << "Хотите распечатать таблицу - нажмите 3";
 		cout << endl << "Хотите отсортировать таблицу - нажмите 4 -> ";

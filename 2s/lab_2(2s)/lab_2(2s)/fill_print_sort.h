@@ -16,4 +16,4 @@ using namespace std;
 
 void print(book mas[], int N);
 void sort(book mas[], int N);
-int input(book arr_b[], int N);
+int fill(book arr_b[], int N);
