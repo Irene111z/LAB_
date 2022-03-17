@@ -8,7 +8,8 @@
 
 #include"struct book.h"
 
-//#define PRINT_TYPE	//def -> screen input,undef -> random
+//#define PRINT_TYPE	
+//def -> screen input,undef -> random
 #define DEBUG
 #define INDENT "\n\n"
 
