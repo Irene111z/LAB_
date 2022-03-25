@@ -2,29 +2,38 @@
 //Переписать в новый массив значения, которые меньше среднего.
 
 #include"functions.h"
-
+#define N 100
 void main()
-{
+{ 
 	setlocale(0, "");
+	while (1)
+	{
+		system("cls");
 
-	cout << "Количество елементов в массиве = ";
-	int size;
-	cin >> size;
-	int* mas = new int[size];
-	fill(mas, size);
+		int mas[N]; int* p; p = mas;
+		cout << "Количество елементов в массиве (до 100) = ";
+		int size;
+		cin >> size;
 
-	print(mas, size);
+		fill(size, p);
 
-	double av;
-	av=aver(mas, size);
-	cout << "Среднее значение = " << av << endl;
+		print(p, size);
 
-	int size2;
-	size2 = size_of_new_mas(mas, size, av);
-	int* new_mas = new int[size2];
+		double av;
+		av = aver(p, size);
+		cout << "Среднее значение = " << av << endl;
 
-	fill_new_mas(mas, size, av, new_mas, size2);
+		int size2;
+		int new_mas[N]; int* np; np = new_mas;
+		size2 = size_of_new_mas(p, size, av);
 
-	print(new_mas, size2);
+		fill_new_mas(p, size, av, np, size2);
 
+		print(np, size2);
+
+		cout << endl<<endl << "Для продолжения нажмите любую клавишу...";
+		_getch();
+
+	}
+	
 }
