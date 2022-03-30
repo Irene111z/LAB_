@@ -1,7 +1,7 @@
 #pragma once
 #include"functions.h"
 
-void fill(double* P, int Size)
+void fill(double* Mas, int Size)
 {
 
 
@@ -11,7 +11,7 @@ void fill(double* P, int Size)
 
 	for (int i = 0; i < Size; i++)
 	{
-		*(P + i) = rand() % 101 - 50;
+		*(Mas + i) = rand() % 101 - 50;
 	}
 
 #endif
@@ -24,47 +24,40 @@ void fill(double* P, int Size)
 	{
 		int j = 0;
 		cin >> j;
-		*(P + i) = j;
+		*(Mas + i) = j;
 	}
 	system("cls");
 
 #endif
 }
 
-void fill_print_new_mas(double* P, int Size, double* NP)
+void fill_new_mas(double* Mas, int Size, double* Mas_, int* Size2)
 {
 	
 	double sum = 0;
 	double av = 0;
-	int size2 = 0;
 	for (int i = 0; i < Size; i++)
 	{
-		sum += *(P + i);
+		sum += *(Mas + i);
 	}
 	av = sum / Size;
 	cout << "Среднее значение = " << av << endl;
 
 	for (int i = 0; i < Size; i++)
 	{
-		if (*(P + i) < av)
-			size2++;
+		if (*(Mas + i) < av)
+			Size2++;
 	}
 
 	int j = 0;
 	for (int i = 0; i < Size; i++)
 	{
-		if (*(P + i) < av)
+		if (*(Mas + i) < av)
 		{
-			*(NP + j) = *(P + i);
+			*(Mas_ + j) = *(Mas + i);
 			j++;
 		}
 	}
-	//печать
-	cout << "Новый массив:" << endl;
-	for (int i = 0; i < size2; i++)
-	{
-		cout << *(NP + i) << setw(4);
-	}
-	cout << endl;
+	
 
 }

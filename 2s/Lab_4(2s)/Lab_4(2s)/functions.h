@@ -8,6 +8,6 @@ using namespace std;
 
 #define TYPE 1	//1-rand, 2=screen input
 
-void fill(double* P, int Size);
+void fill(double* Mas, int Size);
 
-void fill_print_new_mas(double* P, int Size, double* NP);
+void fill_new_mas(double* Mas, int Size, double* Mas_, int* Size2);

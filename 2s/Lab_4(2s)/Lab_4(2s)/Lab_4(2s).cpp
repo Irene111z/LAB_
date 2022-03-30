@@ -10,26 +10,33 @@ void main()
 	cout << "Количество елементов в массиве = ";
 	int size;
 	cin >> size;
-	double mas[N]; double* p = mas;
+	double* mas; new double[size];
 
-	fill(p, size);
+	fill(mas, size);
 
 	//печать
 	cout << "Массив:" << endl;
 	for (int i = 0; i < size; i++)
 	{
-		cout << *(p + i) << setw(4);
+		cout << *(mas + i) << setw(4);
 	}
 	cout << endl;
 	
 	
 
-	int size2=0;
+	int size2=size;
 	
-	double new_mas[N]; double* np = new_mas;
+	double* new_mas; new double[size2];
 
-	fill_print_new_mas(p, size, np);
+	fill_new_mas(mas, size, new_mas, &size2);
 
+	//печать
+	cout << "Новый массив:" << endl;
+	for (int i = 0; i < size2; i++)
+	{
+		cout << *(new_mas + i) << setw(4);
+	}
+	cout << endl;
 	
 	
 
