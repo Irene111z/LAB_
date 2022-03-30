@@ -31,28 +31,31 @@ void fill(double* Mas, int Size)
 #endif
 }
 
-void fill_new_mas(double* Mas, int Size, double* Mas_, int* Size2)
+int size_(double* Mas, int Size, double* Av)
 {
-	
 	double sum = 0;
-	double av = 0;
+	int Size2 = 0;
 	for (int i = 0; i < Size; i++)
 	{
 		sum += *(Mas + i);
 	}
-	av = sum / Size;
-	cout << "Среднее значение = " << av << endl;
+	*Av = sum / Size;
+	/*cout << "Среднее значение = " << *Av << endl;*/
 
 	for (int i = 0; i < Size; i++)
 	{
-		if (*(Mas + i) < av)
+		if (*(Mas + i) < *Av)
 			Size2++;
 	}
+	return Size2;
+}
+void fill_new_mas(double* Mas, int Size, double* Mas_, double* Av)
+{
 
 	int j = 0;
 	for (int i = 0; i < Size; i++)
 	{
-		if (*(Mas + i) < av)
+		if (*(Mas + i) < *Av)
 		{
 			*(Mas_ + j) = *(Mas + i);
 			j++;

@@ -10,7 +10,7 @@ void main()
 	cout << "Количество елементов в массиве = ";
 	int size;
 	cin >> size;
-	double* mas; new double[size];
+	double* mas = new double[size];
 
 	fill(mas, size);
 
@@ -23,12 +23,14 @@ void main()
 	cout << endl;
 	
 	
+	double av = 0;
+	int size2 = size_(mas, size, &av);
 
-	int size2=size;
-	
-	double* new_mas; new double[size2];
+	cout << "Среднее значение = " << av << endl;
 
-	fill_new_mas(mas, size, new_mas, &size2);
+	double* new_mas = new double[size2];
+
+	fill_new_mas(mas, size, new_mas, &av);
 
 	//печать
 	cout << "Новый массив:" << endl;
@@ -38,6 +40,8 @@ void main()
 	}
 	cout << endl;
 	
+	delete[] mas;
+	delete[] new_mas; 
 	
 
 }
