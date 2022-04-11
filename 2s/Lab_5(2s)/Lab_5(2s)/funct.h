@@ -6,8 +6,12 @@
 
 using namespace std;
 
-#define VARIANT1//одномерный
+#define VARIANT 2	
+//1 - одномерный, 2 - двумерный
 
-void print(int *matrix, int n);
-void fill(int *matrix, int n);
+void print2(int **matrix, int size);
+void fill2(int **matrix, int n);
+
+void print1(int* matrix, int size);
+void fill1(int* matrix, int size);
 

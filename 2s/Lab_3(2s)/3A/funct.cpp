@@ -3,7 +3,7 @@
 
 void menu()
 {
-	cout << "--- ÍÀÕÎÆÄÅÍÈÅ ÑÓÌÌÛ È ÊÎË. ÎÒÐÈÖÀÒÅËÜÍÛÕ ÝË. ÌÀÑÑÈÂÀ ---"<<endl;
+	cout << "--- ÍÀÕÎÆÄÅÍÈÅ ÑÓÌÌÛ È ÊÎË. ÎÒÐÈÖÀÒÅËÜÍÛÕ ÝË. ÌÀÑÑÈÂÀ ---" << endl;
 	cout << "1. ×åðåç îòíîñèòåëüíûé àäðåñ " << endl;
 	cout << "2. ×åðåç àáñîëþòíûé àäðåñ " << endl;
 	cout << "3. Áåç èñïîëüçîâàíèÿ àäðåñàöèè" << endl;
@@ -28,14 +28,8 @@ void fill(int* P, int Size, int Choice)
 		system("cls");
 	}
 	else if (Choice == 2)
-	{
-		srand(time(NULL));
-
 		for (int i = 0; i < Size; i++)
-		{
 			*(P + i) = rand() % 21 - 10;
-		}
-	}
 
 }
 void print(int* P, int Size)
@@ -52,7 +46,10 @@ void sum_count(int* P, int Size, int* Sum, int* Count)
 {
 	for (int i = 0; i < Size; i++)
 	{
-		if (*(P + i) < 0)
-			Sum += *(P + i), Count++;
+		if (*P < 0) {
+			*Sum += *P;
+			(*Count)++;
+		}
+		P++;
 	}
 }
