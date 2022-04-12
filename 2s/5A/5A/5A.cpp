@@ -32,6 +32,14 @@ void main()
 	cout << "Сумма по ГД: " << sum_gd;
 	cout << "Произведение по ПД: " << product_pd;
 
+	delete[] min_cols, max_rows;
+	for (int i = 0; i < size; i++)
+	{
+		delete[] matrix[i];
+	}	
+	delete[] matrix;
+
+
 	/*cout << "Массив-результат выполнения работы ф-и: " << endl;
 	cout<<*/
 
