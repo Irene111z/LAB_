@@ -101,7 +101,7 @@ int main()
 				print(mas, size);
 				cout << endl;
 
-				int* ptr_arr[100];
+				int* ptr_arr[N];
 
 				for (int i = 0; i < size; i++)
 				{
