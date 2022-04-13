@@ -164,5 +164,9 @@ int main()
 			}
 
 		} while (item != 7);
+
+		delete[] mas;
 	}
+
+	
 }
