@@ -15,8 +15,8 @@ void main()
 	for (int i = 0; i < size; i++)
 		*(matrix+i) = new int[size];
 
-	int product_pd=0;
-	int sum_gd=1;
+	int product_pd=1;
+	int sum_gd=0;
 	int* arr;
 
 	fill_matrix(matrix, size);
@@ -40,7 +40,5 @@ void main()
 	delete[] matrix;
 
 
-	/*cout << "Массив-результат выполнения работы ф-и: " << endl;
-	cout<<*/
 
 }

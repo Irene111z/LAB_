@@ -25,7 +25,8 @@ void print_matrix(int** Matrix, int Size)
 }
 void print_array(int* Arr, int Size)
 {
-	for (int i = 0; i < Size; i++, cout << *(Arr + i) << setw(4));
+	for (int i = 0; i < Size; i++)
+		cout << *(Arr + i) << setw(4);
 }
 int*& fun(int Size, int** Matrix, int* Min_cols, int* Max_rows, int* Sum_gd, int* Product_pd)
 {
@@ -52,9 +53,9 @@ int*& fun(int Size, int** Matrix, int* Min_cols, int* Max_rows, int* Sum_gd, int
 		for (int j = 0; j < Size; j++)
 		{
 			if (i == j)
-				*Sum_gd += *(*(Matrix + j) + i);
+				*Sum_gd += *(*(Matrix + i) + j);
 			if (i == Size - j--)
-				*Product_pd *= *(*(Matrix + j) + i);
+				*Product_pd *= *(*(Matrix + i) + j);
 		}
 	}
 	int* result = new int[2];
