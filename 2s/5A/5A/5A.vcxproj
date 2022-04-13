@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b6606142-004a-4e89-86b0-0e3eaffa7eeb}</ProjectGuid>
+    <ProjectGuid>{d34b955d-2083-44d5-9a9c-576b65f50322}</ProjectGuid>
     <RootNamespace>My5A</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -140,10 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="5A.cpp" />
-    <ClCompile Include="foo.cpp" />
+    <ClCompile Include="f.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="foo.h" />
+    <ClInclude Include="f.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

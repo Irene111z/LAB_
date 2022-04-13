@@ -1,5 +1,5 @@
 #pragma once
-#include "foo.h"
+#include "f.h"
 
 void fill_matrix(int** Matrix, int Size)
 {
@@ -7,7 +7,7 @@ void fill_matrix(int** Matrix, int Size)
 	{
 		for (int j = 0; j < Size; j++)
 		{
-			*(*(Matrix + i) + j) = rand() % 101-50;
+			*(*(Matrix + i) + j) = rand() % 101 - 50;
 		}
 	}
 
@@ -54,7 +54,7 @@ int*& fun(int Size, int** Matrix, int* Min_cols, int* Max_rows, int* Sum_gd, int
 		{
 			if (i == j)
 				*Sum_gd += *(*(Matrix + i) + j);
-			if (i == Size - j-1)
+			if (i == Size - j - 1)
 				*Product_pd *= *(*(Matrix + i) + j);
 		}
 	}

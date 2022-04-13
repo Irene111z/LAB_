@@ -1,4 +1,4 @@
-﻿#include "foo.h"
+﻿#include "f.h"
 
 void main()
 {
@@ -13,16 +13,16 @@ void main()
 
 	int** matrix = new int* [size];
 	for (int i = 0; i < size; i++)
-		*(matrix+i) = new int[size];
+		*(matrix + i) = new int[size];
 
-	int product_pd=1;
-	int sum_gd=0;
+	int product_pd = 1;
+	int sum_gd = 0;
 	int* arr;
 
 	fill_matrix(matrix, size);
-	cout << "Матрица:" << endl<<setw(4);
+	cout << "Матрица:" << endl << setw(4);
 	print_matrix(matrix, size); cout << endl;
-	
+
 	arr = fun(size, matrix, min_cols, max_rows, &sum_gd, &product_pd);
 	cout << "Минимальные значение в колонках:" << endl;
 	print_array(min_cols, size); cout << endl;
@@ -37,9 +37,7 @@ void main()
 	for (int i = 0; i < size; i++)
 	{
 		delete[] matrix[i];
-	}	
+	}
 	delete[] matrix;
-
-
 
 }
