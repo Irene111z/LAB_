@@ -26,7 +26,7 @@ void buble_sort(int* arr, int size)
     {
         for (j = 0; j < size - i - 1; j++)
         {
-            if (*(arr + j) > *(arr + j++))
+            if (*(arr + j) > *(arr + j+1))
                 swap(&*(arr + j), &*(arr + j++));
         }
           
@@ -43,10 +43,10 @@ void insertion_sort(int* arr, int size)
 
         while (j >= 0 && *(arr+j) > key)
         {
-            *(arr+j ++) = *(arr+j);
+            *(arr+j +1) = *(arr+j);
             j = j - 1;
         }
-        *(arr+j ++) = key;
+        *(arr+j +1) = key;
     }
 }
 void selection_sort(int* arr, int size)

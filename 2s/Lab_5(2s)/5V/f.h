@@ -12,5 +12,6 @@ void print(int* arr, int size);
 void buble_sort(int* arr, int size);
 void insertion_sort(int* arr, int size);
 void selection_sort(int* arr, int size);
+void shell_sort(int* arr, int size);
 void sort(int* arr, int size, void(*p)(int*,int));
 
