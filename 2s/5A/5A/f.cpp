@@ -61,5 +61,8 @@ int*& fun(int Size, int** Matrix, int* Min_cols, int* Max_rows, int* Sum_gd, int
 	int* result = new int[2];
 	*result = *Sum_gd;
 	*(result + 1) = *Product_pd;
+
 	return *&result;
+	
+
 }

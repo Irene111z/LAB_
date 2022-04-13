@@ -17,23 +17,23 @@ void main()
 
 	int product_pd = 1;
 	int sum_gd = 0;
-	int* arr;
+	int* result;
 
 	fill_matrix(matrix, size);
 	cout << "Матрица:" << endl << setw(4);
 	print_matrix(matrix, size); cout << endl;
 
-	arr = fun(size, matrix, min_cols, max_rows, &sum_gd, &product_pd);
+	result = fun(size, matrix, min_cols, max_rows, &sum_gd, &product_pd);
 	cout << "Минимальные значение в колонках:" << endl;
 	print_array(min_cols, size); cout << endl;
 	cout << "Максимальные значения в строках:" << endl;
 	print_array(max_rows, size); cout << endl;
 
-	cout << "Сумма по ГД: " << sum_gd; cout << endl;
-	cout << "Произведение по ПД: " << product_pd;
+	cout << "Сумма по ГД: " << *result; cout << endl;
+	cout << "Произведение по ПД: " << *(result+1);
 	cout << endl << endl << endl;
 
-	delete[] min_cols, max_rows;
+	delete[] min_cols, max_rows, result;
 	for (int i = 0; i < size; i++)
 	{
 		delete[] matrix[i];
