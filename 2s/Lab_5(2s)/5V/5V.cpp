@@ -73,5 +73,6 @@ void main()
 			}
 
 		} while (item != 5);
+		delete[] mas;
 	}
 }
