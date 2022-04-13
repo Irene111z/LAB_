@@ -35,8 +35,8 @@ int*& fun(int Size, int** Matrix, int* Min_cols, int* Max_rows, int* Sum_gd, int
 		*(Min_cols + i) = INT_MAX;
 		for (int j = 0; j < Size; j++)
 		{
-			if (*(*(Matrix + j) + i) < *(Min_cols + i))
-				*(Min_cols + i) = *(*(Matrix + j) + i);
+			if (*(*(Matrix + i) + j) < *(Min_cols + i))
+				*(Min_cols + i) = *(*(Matrix + i) + j);
 		}
 	}
 	for (int i = 0; i < Size; i++)
@@ -44,8 +44,8 @@ int*& fun(int Size, int** Matrix, int* Min_cols, int* Max_rows, int* Sum_gd, int
 		*(Max_rows + i) = INT_MIN;
 		for (int j = 0; j < Size; j++)
 		{
-			if (*(*(Matrix + i) + j) > *(Max_rows + i))
-				*(Max_rows + i) = *(*(Matrix + i) + j);
+			if (*(*(Matrix + j) + i) > *(Max_rows + i))
+				*(Max_rows + i) = *(*(Matrix + j) + i);
 		}
 	}
 	for (int i = 0; i < Size; i++)
@@ -54,7 +54,7 @@ int*& fun(int Size, int** Matrix, int* Min_cols, int* Max_rows, int* Sum_gd, int
 		{
 			if (i == j)
 				*Sum_gd += *(*(Matrix + i) + j);
-			if (i == Size - j--)
+			if (i == Size - j-1)
 				*Product_pd *= *(*(Matrix + i) + j);
 		}
 	}
