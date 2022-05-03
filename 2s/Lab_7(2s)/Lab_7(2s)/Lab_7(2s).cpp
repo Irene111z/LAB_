@@ -1,4 +1,5 @@
-﻿#include "fun.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include "fun.h"
 
 
 void main()
@@ -20,37 +21,48 @@ void main()
 		case 1:
 		{
 			cout << endl;
-			cout << "3. Добавить запись в начало файла." << endl;
-			cout << "4. Добавить запись в конец файла." << endl; 
+			cout << "1. Добавить запись в начало файла." << endl;
+			cout << "2. Добавить запись в конец файла." << endl; 
 			cin >> q;
-			if (q == 3 || q == 4)
+			if (q == 1 || q == 2)
 				screen_input(fname, q);
 			else
+			{
+				system("cls");
 				break;
+			}
 		}break;
 		case 2:
 		{
 			cout << endl;
-			cout << "3. Добавить запись в начало файла." << endl;
-			cout << "4. Добавить запись в конец файла." << endl;
+			cout << "1. Добавить запись в начало файла." << endl;
+			cout << "2. Добавить запись в конец файла." << endl;
 			cin >> q;
-			if (q == 3 || q == 4)
+			if (q == 1 || q == 2)
 				rand(fname, q);
 			else
+			{
+				system("cls");
 				break;
+			}
+				
 
 		}break;
 		case 3:
 		{
-
+			print_book(fname);
+			system("pause");
+			system("cls");
 		}break;
 		case 4:
 		{
-
+			print_books(fname);
+			system("pause");
+			system("cls");
 		}break;
 		case 5:
 		{
-
+			file_cleaning(fname);
 		}break;
 		case 6:
 		{

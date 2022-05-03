@@ -23,3 +23,5 @@ void rand_begin(FILE* f, char* fname);
 void screen_input_begin(FILE* f, char* fname);
 void rand(char* fname, short q);
 void screen_input(char* fname, short q);
+void print_book(char* fname);
+void print_books(char* fname);

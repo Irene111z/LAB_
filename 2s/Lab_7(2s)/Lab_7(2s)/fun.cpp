@@ -1,5 +1,6 @@
-#include "fun.h"
 #define _CRT_SECURE_NO_WARNINGS
+#include "fun.h"
+
 
 void print_menu()
 {
@@ -7,11 +8,10 @@ void print_menu()
 	cout << "МЕНЮ:" << endl;
 	cout << "1. Ввод с экрана и запись в файл." << endl;
 	cout << "2. Ввод случайным образом и запись в файл." << endl;
-	cout << "3. Добавить запись в начало файла." << endl;
-	cout << "4. Добавить запись в конец файла." << endl;
-	cout << "5. Печать одной записи из файла по номеру." << endl;
-	cout << "6. Чтение всех структур последовательно из файла и печать." << endl;
-	cout << "7. Выход из программы." << endl;
+	cout << "3. Печать одной записи из файла по номеру." << endl;
+	cout << "4. Чтение всех структур последовательно из файла и печать." << endl;
+	cout << "5. Очистить файл." << endl;
+	cout << "6. Выход из программы." << endl;
 	
 }
 void file_cleaning(char* fname) 
@@ -90,12 +90,10 @@ void rand_begin(FILE* f, char* fname)
 	fseek(f, 0, SEEK_SET);
 	while (!feof(f))
 	{
-		fscanf_s(f, "%s   %s   %d   %c", &t.aut, &t.name, &t.year, &t.type);
+		fscanf(f, "%s   %s   %d   %c", &t.aut, &t.name, &t.year, &t.type);
 		fprintf(temp, "\n%-11s	 %-9s  %-10d  %-5c", t.aut, t.name, t.year, t.type);
 	}
-	if (f != NULL)
 		fclose(f);
-	if (temp != NULL)
 		fclose(temp);
 	remove(fname);
 	rename("Temp.txt", fname);
@@ -138,7 +136,7 @@ void screen_input_begin(FILE* f, char* fname)
 	fseek(f, 0, SEEK_SET);
 	while (!feof(f))
 	{
-		fscanf_s(f, "%s   %s   %d   %c", &t.aut, &t.name, &t.year, &t.type);
+		fscanf(f, "%s   %s   %d   %c", &t.aut, &t.name, &t.year, &t.type);
 		fprintf(temp, "\n%-11s	 %-9s  %-10d  %-5c", t.aut, t.name, t.year, t.type);
 	}
 	fclose(f);
@@ -149,15 +147,15 @@ void screen_input_begin(FILE* f, char* fname)
 void rand(char* fname, short q)
 {
 	FILE* f;
-	fopen_s(&f, fname, "r+");
+	fopen_s(&f, fname, "r+t");
 	if (!f)
 	{
 		fopen_s(&f, fname, "w+");
-		q = 4;
+		q = 2;
 	}
-	if (q == 3)
+	if (q == 1)
 		rand_begin(f, fname);
-	if (q == 4)
+	if (q == 2)
 		rand_end(f);
 	if (f != NULL)
 		fclose(f);
@@ -169,14 +167,78 @@ void screen_input(char* fname, short q)
 	if (!f)
 	{
 		fopen_s(&f, fname, "w+");
-		q = 4;
+		q = 2;
 	}
-	if (q == 3)
+	if (q == 1)
 		screen_input_begin(f, fname);
-	if (q == 4)
+	if (q == 2)
 		screen_input_end(f);
 	if (f != NULL)
 		fclose(f);
+}
+void print_book(char* fname)
+{
+	book mas;
+	FILE* f;
+	int N;
+	fopen_s(&f, fname, "r+t");
+	cout << "Какую строку хотите вывести: ";
+	cin >> N;
+
+	printf("------------------------------------------------\n");
+	printf("|Каталог библиотеки                            |\n");
+	printf("|----------------------------------------------|\n");
+	printf("|Автор книги  |Название  |Год выпуска |Группа  |\n");
+	printf("|             |          |            |        |\n");
+	printf("|-------------|----------|------------|--------|\n");
+
+	for (; N - 1 >= 0; ) 
+	{
+
+		fscanf(f, "%s  %s  %d  %c", &mas.aut, &mas.name, &mas.year, &mas.type);
+		N--;
+	}
+
+		printf("| %-11s | %-9s| %-10d | %-5c  |\n",
+			mas.aut, mas.name, mas.year, mas.type);
+
+	printf("|----------------------------------------------|\n");
+	printf("| Примечание: Х - художественная литература;   |\n");
+	printf("| У - учебная литература;                      |\n");
+	printf("| С - справочная литература                    |\n");
+	printf("------------------------------------------------\n");
+
+	if (f != NULL)
+		fclose(f);
+}
+void print_books(char* fname)
+{
+	book mas;
+	FILE* f;
+	fopen_s(&f, fname, "r+t");
+
+	printf("------------------------------------------------\n");
+	printf("|Каталог библиотеки                            |\n");
+	printf("|----------------------------------------------|\n");
+	printf("|Автор книги  |Название  |Год выпуска |Группа  |\n");
+	printf("|             |          |            |        |\n");
+	printf("|-------------|----------|------------|--------|\n");
+
+	while (!feof(f))
+	{
+		fscanf(f, "%s  %s  %d  %c", &mas.aut, &mas.name, &mas.year, &mas.type);
+		printf("| %-11s | %-9s| %-10d | %-5c  |\n",
+			mas.aut, mas.name, mas.year, mas.type);
+	}
+	printf("|----------------------------------------------|\n");
+	printf("| Примечание: Х - художественная литература;   |\n");
+	printf("| У - учебная литература;                      |\n");
+	printf("| С - справочная литература                    |\n");
+	printf("------------------------------------------------\n");
+
+	if (f != NULL)
+		fclose(f);
+
 }
 
 
