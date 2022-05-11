@@ -82,7 +82,7 @@ int main()
 				break;
 
 			case 7:
-				CreateListFromFile();
+				Begin = CreateListFromFile();
 				cout << "List was created\n" << endl;
 				system("pause");
 				system("cls");

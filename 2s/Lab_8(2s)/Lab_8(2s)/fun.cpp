@@ -96,10 +96,10 @@ void PrintList(book* Begin)
 	book* Current = Begin;
 	while (Current != nullptr)
 	{
-		cout << "[" << Current->aut << " " << Current->name << " " << Current->year << " " << Current->type << "]";
-		cout << endl;
+		printf("\n %-11s %-9s %-10d %c", Current->aut, Current->name, Current->year, Current->type);
 		Current=Current->Next;
 	}
+	cout << endl;
 }
 void Sort(book* Begin)
 {
@@ -130,7 +130,7 @@ void FillFile(book* Begin)
 	fopen_s(&f, "book.txt", "w+t");
 	while (Current)
 	{
-		fprintf(f, "\n%-11s	 %-9s  %-10d  %-5c", Current->aut, Current->name, Current->year, Current->type);
+		fprintf(f, "\n %-11s %-9s %-10d %c", Current->aut, Current->name, Current->year, Current->type);
 		Current = Current->Next;
 	}
 	fclose(f);
@@ -141,17 +141,18 @@ book* CreateListFromFile()
 	Current = Begin = Previos = (book*)malloc(sizeof(book));
 	FILE* f;
 	fopen_s(&f, "book.txt", "r+t");
-	fscanf(f, "%s   %s   %d   %c", &Current->aut, &Current->name, &Current->year, &Current->type);
+	fscanf(f, "%s %s %d %c ", &Current->aut, &Current->name, &Current->year, &Current->type);
 	while (!feof(f))
 	{
 		Current = (book*)malloc(sizeof(book));
-		fscanf(f, "%s   %s   %d   %c", &Current->aut, &Current->name, &Current->year, &Current->type);
+		fscanf(f, "%s %s %d %c ", &Current->aut, &Current->name, &Current->year, &Current->type);
 		Previos->Next = Current;
 		Previos = Current;
 	}
 	Current->Next = nullptr;
 	fclose(f);
-	return(Begin);
+
+	return Begin;
 }
 void SearchAut(book* Begin)
 {
