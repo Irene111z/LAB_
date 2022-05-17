@@ -1,12 +1,12 @@
 ﻿#include "fun.h"
 
+book* Begin = nullptr;
+book* End = nullptr;
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	book* Begin = nullptr;
-	book* End = nullptr;
-
+	
 	while (true)
 	{
 		short a;
